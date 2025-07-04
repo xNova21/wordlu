@@ -43,7 +43,7 @@ export default function Game() {
 
   const [resultColors, setResultColors] = useState([]);
 
-  const [newGame, setNewGame] = useState(true);
+  const [newGame, setNewGame] = useState(false);
 
   const handleChange = (value) => {
     setCurrentAttempt((prev) => {
