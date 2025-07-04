@@ -203,30 +203,27 @@ export default function Game() {
         </h1>
         <p className={`h-8 ${message?.class}`}>{message?.message}</p>
         {/* grid */}
-        <div className="grid align-center gap-2 grid-rows-5 uppercase font-bold w-full max-w-lg mx-auto">
-          {Array.from({ length: 6 }).map((_, idx) => (
-            <div key={idx} className="gap-1 grid-cols-5 w-full grid">
-              {Array.from({ length: 5 }).map((_, jdx) => {
-                // si la fila actual conicide con el intento actual, muestra el intento actual, si no, muestra el caracter del intento correspondiente
-                const value =
-                  idx < attempts.length
-                    ? attempts[idx][jdx]
-                    : idx === attempts.length
-                    ? currentAttempt[jdx]
-                    : "";
-                return (
-                  <span
-                    key={jdx}
-                    className={`border-2 border-gray-900 aspect-square flex items-center justify-center uppercase text-center text-black dark:text-white text-[clamp(1.2rem,4vw,2.5rem)] ${
-                      resultColors[idx] ? `${resultColors[idx][jdx]} flip` : ""
-                    } `}
-                  >
-                    {value ? value : ""}
-                  </span>
-                );
-              })}
-            </div>
-          ))}
+        <div className="grid grid-rows-6 grid-cols-5 gap-2 w-full max-w-lg mx-auto font-bold uppercase">
+          {Array.from({ length: 30 }).map((_, idx) => {
+            const row = Math.floor(idx / 5);
+            const col = idx % 5;
+            const value =
+              row < attempts.length
+                ? attempts[row][col]
+                : row === attempts.length
+                ? currentAttempt[col]
+                : "";
+            return (
+              <span
+                key={idx}
+                className={`border-2 border-gray-900 aspect-square flex items-center justify-center text-center text-black dark:text-white text-[clamp(1.2rem,4vw,2.5rem)] ${
+                  resultColors[row] ? `${resultColors[row][col]} flip` : ""
+                }`}
+              >
+                {value ? value : ""}
+              </span>
+            );
+          })}
         </div>
         {/* teclado */}
         {!newGame ? (
