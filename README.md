@@ -1,4 +1,4 @@
-# Wordlu
+# Wordlu Infinite
 
 Wordlu es un proyecto desarrollado para ofrecer una experiencia de juego de palabras similar a Wordle, creado en 2022, actualizado en 2025.
 
