@@ -173,6 +173,7 @@ export default function Game() {
     }
     setGoodWord({ word: randomWord, counter: counter });
     setAttempts([]);
+    setResultColors([]);
     setCurrentAttempt("");
     setNewGame(false);
 
